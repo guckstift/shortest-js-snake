@@ -1,4 +1,4 @@
 # Snake As Short As I Can
 
 Shortest Snake implementation I could do with HTML5 and ES6 while still respecting readability.
-This way my Snake source code is only 45 lines of HTML+JS code. Yet its a super simple version.
+This way my Snake source code is only 42 lines of HTML+JS code. Yet its a super simple version.

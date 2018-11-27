@@ -6,20 +6,17 @@
 	<body>
 		<canvas width="800" height="600"></canvas>
 		<script>
-			let rand  = fac => Math.floor(Math.random() * fac);
+			let rand  = amp => Math.floor(Math.random() * amp);
 			let add2d = (a, b) => [a[0] + b[0], a[1] + b[1]];
-			let mod2d = (v, m) => [(v[0] % m[0] + m[0]) % m[0], (v[1] % m[1] + m[1]) % m[1]];
+			let modv  = (v, m) => v.map((x, i) => (x % m[i] + m[i]) % m[i]);
+			let dirs  = {ArrowRight: [1,0], ArrowLeft: [-1,0], ArrowDown: [0,1], ArrowUp: [0,-1]};
+			let snake = [[8,6]], apple = [4,3], dir = [0,0];
 			let ctx   = document.querySelector("canvas").getContext("2d");
-			let snake = [[8, 6]], apple = [4, 3], dir = [0, 0];
 			
-			document.onkeydown = e => void(
-				e.key === "ArrowRight" && (dir = [ 1,  0]) ||
-				e.key === "ArrowLeft"  && (dir = [-1,  0]) ||
-				e.key === "ArrowDown"  && (dir = [ 0,  1]) ||
-				e.key === "ArrowUp"    && (dir = [ 0, -1]) )
+			document.onkeydown = e => void(dir = dirs[e.key] || dir);
 			
 			setInterval(() => {
-				snake.unshift(mod2d(add2d(snake[0], dir), [16, 12]));
+				snake.unshift(modv(add2d(snake[0], dir), [16,12]));
 				
 				if(snake.slice(1, -1).find(seg => seg + "" == snake[0])) {
 					snake.splice(1);
