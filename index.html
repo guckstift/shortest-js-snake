@@ -3,17 +3,19 @@
 	<head>
 		<title>snake</title>
 		<script type="module">
-			document.body.innerHTML = `<canvas id="canvas" width="256" height="256">`;
-			let ctx   = canvas.getContext("2d", {alpha: false});
-			let dirs  = {Right: [1,0], Left: [-1,0], Down: [0,1], Up: [0,-1]};
+			document.body.innerHTML = `<canvas id="canvas"
+				width="256" height="256" style="background: black;">`;
+			let ctx   = canvas.getContext("2d");
 			let snake = [[8,8]], apple = [4,4], dir = [0,0];
-			onkeydown = e => dir = dirs[e.key.slice(5)] || dir;
+			onkeydown = ({key}) => dir =
+				{ ArrowRight:[1,0], ArrowLeft:[-1,0] ,
+				  ArrowDown: [0,1], ArrowUp:  [0,-1] }[key] || dir;
 			setInterval(() => {
 				snake.unshift([ snake[0][0] + dir[0] + 16 & 15 ,
 				                snake[0][1] + dir[1] + 16 & 15 ]);
 				if("" + snake[0] == apple)
-					do apple = [ Math.floor(Math.random() * 16) ,
-					             Math.floor(Math.random() * 16) ];
+					do apple = [ Math.floor(Math.random()*16) ,
+					             Math.floor(Math.random()*16) ];
 					while(snake.some(seg => "" + seg == apple));
 				else if(snake.slice(1).some(seg => "" + seg == snake[0]))
 					snake.splice(1);
@@ -21,9 +23,9 @@
 					snake.pop();
 				ctx.clearRect(0, 0, 256, 256);
 				ctx.fillStyle = "red";
-				ctx.fillRect(apple[0] * 16, apple[1] * 16, 16, 16);
+				ctx.fillRect(apple[0]*16, apple[1]*16, 16, 16);
 				ctx.fillStyle = "lime";
-				snake.forEach(([x,y]) => ctx.fillRect(x * 16, y * 16, 16, 16));
+				snake.forEach(([x,y]) => ctx.fillRect(x*16, y*16, 16, 16));
 			}, 125);
 		</script>
 	</head>
