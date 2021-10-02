@@ -1,0 +1,8 @@
+<canvas id=v><script>s=[[8,8]];a=[4,4];x=y=0;n=16;z=v.width=v.height=256
+onkeydown=_=>[x,y]={R:[x||1,0],L:[x||-1,0],D:[0,y||1],U:[0,y||-1]}[_.key[5]]||[x,y]
+setInterval(_=>{s.unshift([s[0][0]+x&15,s[0][1]+y&15])
+if(""+s[0]==a)do a=a.map(_=>Math.random()*n|0)
+while(s.some(g=>""+g==a))else if(s.slice(1).some(g=>""+g==s[0]))s=[s[0]]
+else s.pop();with(v.getContext("2d")){f=_=>fillStyle=_[0]
+f`#000`;fillRect(0,0,z,z);f`red`;fillRect(a[0]*n,a[1]*n,n,n)
+f`lime`;s.forEach(([x,y])=>fillRect(x*n,y*n,n,n))}},125)</script>
