@@ -4,5 +4,5 @@ v=v.getContext("2d");setInterval(_=>{s.unshift([s[0][0]+x&15,s[0][1]+y&15])
 if(""+s[0]==a)do a=a.map(_=>Math.random()*n|0)
 while(s.some(g=>""+g==a))else if(s.slice(1).some(g=>""+g==s[0]))s=[s[0]]
 else s.pop();f=_=>v.fillStyle=_[0];F=v.fillRect.bind(v)
-f`#000`;F(0,0,z,z);f`red`;F(a[0]*n,a[1]*n,n,n)
-f`lime`;s.forEach(([x,y])=>F(x*n,y*n,n,n))},125)</script>
+G=([x,y])=>F(x*n,y*n,n,n);f`#000`;F(0,0,z,z);f`red`;G(a)
+f`lime`;s.map(G)},125)</script>
