@@ -1,6 +1,6 @@
-<canvas id=v><script>z=v.height*=2;n=20;x=y=0;a=[7,7];s=[h=a]
-onkeydown=_=>[x,y]={R:[x||1,0],L:[x||14,0],D:[0,y||1],U:[0,y||14]}[_.key[5]]||[x,y]
-v=v.getContext("2d");setInterval(_=>{s.unshift(h=[(h[0]+x)%15,(h[1]+y)%15])
-""+h==a?(_=>{while(s.some(g=>""+g==a))a=a.map(_=>Math.random()*15|0)})():s.some((g,i)=>i&&""+g==h)?(s=[h]):s.pop()
-f=_=>v.fillStyle=_[0];F="fillRect";G=([x,y])=>v[F](x*n,y*n,n,n);f`#000`
-v[F](0,0,z,z);f`red`;G(a);f`lime`;s.map(G)},125)</script>
+<canvas id=v><script>z=v.height*=2;X=0;a=h=136;s=[h];k=240;v=v.getContext("2d")
+setInterval(j=>{Y=X&k;s.unshift(h=h+X&15|h+Y&k)
+onkeydown=e=>X={R:X%j||1,L:X%j||15,D:Y||j,U:Y||k}[e.key[5]]||X
+G=(c,l=z/j)=>P=>{v.fillStyle=c;v.fillRect(P%j*l,(P>>4)*l,l,l)}
+h-a?s[q](h,1)?s=[h]:s.pop():(Q=_=>s[q="includes"](a=Math.random()*256|0)&&Q())()
+G("#000",z)(0);G("red")(a);s.map(G("tan"))},a,16)</script>
