@@ -5,4 +5,4 @@ This way my Snake source code is only 32 lines of HTML+JS code. Yet its a super 
 
 There is an even shorter minimalist version in shorter.html without HTML boilerplate => 22 LOC!
 
-Then there is the hand-minified version in min.html. I tried to squeeze out as much bytes as I could => 394 Bytes only
+Then there is the hand-minified version in min.html. I tried to squeeze out as much bytes as I could => 392 Bytes only
