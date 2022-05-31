@@ -1,6 +1,6 @@
-<canvas id=v><script>z=v.height*=2;X=0;a=h=136;s=[h];k=240;v=v.getContext("2d")
+<body onload="z=v.height*=2;X=0;a=h=136;s=[h];k=240;v=v.getContext('2d')
 setInterval(j=>{Y=X&k;s.unshift(h=h+X&15|h+Y&k)
-onkeydown=e=>X={R:X%j|1,L:X%j||15,D:Y|j,U:Y||k}[e.key[5]]||X
+onkeydown=e=>X=[Y|j,X%j||15,Y||k,X%j|1][e.which&3]
 G=(c,l=z/j)=>P=>{v.fillStyle=c;v.fillRect(P%j*l,(P>>4)*l,l,l)}
-h-a?s[q](h,1)?s=[h]:s.pop():(Q=_=>s[q="includes"](a=Math.random()*256|0)&&Q())()
-G("#000",z)(0);G("red")(a);s.map(G("tan"))},a,16)</script>
+h-a?s[q](h,1)?s=[h]:s.pop():(Q=_=>s[q='includes'](a=Math.random()*256|0)&&Q())()
+G('#000',z)(0);G('red')(a);s.map(G('tan'))},a,16)"><canvas id=v>
